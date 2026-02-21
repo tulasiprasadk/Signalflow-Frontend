@@ -1,0 +1,87 @@
+nohup: ignoring input
+
+> frontend@1.0.0 dev
+> next dev -p 9000
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:9000
+  - Environments: .env
+
+ ✓ Starting...
+ ✓ Ready in 6.4s
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 3.9s (260 modules)
+ GET /dashboard 200 in 4673ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.8s (328 modules)
+ GET /?connected=facebook&success=0 200 in 3392ms
+ GET /?connected=facebook&success=0 200 in 188ms
+ GET /dashboard?id=8e3d25b0-665b-4bef-b3b4-0a62b026e7e1&vscodeBrowserReqId=1770134217314 200 in 208ms
+ GET /dashboard 200 in 96ms
+ GET /?connected=facebook&success=1 200 in 82ms
+ ✓ Compiled in 3.3s (260 modules)
+ ✓ Compiled in 1046ms (260 modules)
+ GET /dashboard 200 in 277ms
+ ○ Compiling / ...
+ ✓ Compiled / in 954ms (328 modules)
+ GET /?connected=facebook&success=1 200 in 1176ms
+ ✓ Compiled in 1712ms (328 modules)
+ ✓ Compiled in 1686ms (260 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 1416ms (328 modules)
+ GET / 200 in 2150ms
+ ✓ Compiled in 2.8s (260 modules)
+ ✓ Compiled in 1237ms (260 modules)
+ GET /dashboard 200 in 341ms
+ ○ Compiling /workflow ...
+ ✓ Compiled /workflow in 1617ms (264 modules)
+ GET /workflow 200 in 1789ms
+ ✓ Compiled in 3s (264 modules)
+ ✓ Compiled in 1380ms (264 modules)
+ ✓ Compiled in 4s (264 modules)
+ ✓ Compiled in 1637ms (264 modules)
+ ✓ Compiled in 1827ms (264 modules)
+ ✓ Compiled in 1457ms (264 modules)
+ ✓ Compiled in 2.4s (264 modules)
+ ✓ Compiled in 1445ms (264 modules)
+ ✓ Compiled in 2.1s (264 modules)
+ ✓ Compiled in 1859ms (264 modules)
+ ✓ Compiled in 3.1s (264 modules)
+ ✓ Compiled in 1264ms (264 modules)
+ ✓ Compiled in 1854ms (264 modules)
+ ✓ Compiled in 1116ms (264 modules)
+ GET /workflow 200 in 405ms
+ ✓ Compiled in 4.4s (264 modules)
+ ✓ Compiled in 1274ms (264 modules)
+ GET /workflow 200 in 333ms
+ ✓ Compiled in 10.9s (264 modules)
+ ✓ Compiled in 1196ms (264 modules)
+ ✓ Compiled in 2s (264 modules)
+ ✓ Compiled in 2.5s (264 modules)
+ ✓ Compiled in 1547ms (264 modules)
+ ✓ Compiled in 903ms (264 modules)
+ ✓ Compiled in 1915ms (264 modules)
+ ✓ Compiled in 966ms (264 modules)
+ GET /workflow 200 in 374ms
+ ✓ Compiled in 7.9s (264 modules)
+ ✓ Compiled in 2.7s (264 modules)
+ ✓ Compiled in 4.4s (264 modules)
+ ✓ Compiled in 1268ms (264 modules)
+ ✓ Compiled in 2.1s (264 modules)
+ ✓ Compiled in 1620ms (264 modules)
+ ✓ Compiled in 3s (264 modules)
+ ✓ Compiled in 2.5s (264 modules)
+ ✓ Compiled in 1441ms (264 modules)
+ GET /workflow 200 in 1057ms
+ ✓ Compiled in 2.7s (264 modules)
+ ✓ Compiled in 1966ms (264 modules)
+ ✓ Compiled in 1358ms (264 modules)
+ ✓ Compiled in 1983ms (264 modules)
+ ✓ Compiled in 5s (264 modules)
+ ✓ Compiled in 2.7s (264 modules)
+ ✓ Compiled in 1673ms (264 modules)
+ ✓ Compiled in 3.1s (264 modules)
+ ✓ Compiled in 1318ms (264 modules)
+ GET /workflow 200 in 923ms
+ ✓ Compiled in 2.8s (264 modules)
+ ✓ Compiled in 1176ms (264 modules)
