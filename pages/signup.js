@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
-import { setAuthSession } from '../utils/auth';
+import { useEffect, useState } from 'react';
+import { setAuthSession, isPublicSignupEnabled } from '../utils/auth';
 import { getApiBaseUrl, parseApiResponse } from '../utils/api';
 
 export default function SignupPage() {
@@ -10,9 +10,17 @@ export default function SignupPage() {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const signupEnabled = isPublicSignupEnabled();
+
+  useEffect(() => {
+    if (!signupEnabled) {
+      setError('Public signup is disabled. Contact the administrator for access credentials.');
+    }
+  }, [signupEnabled]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (!signupEnabled) return;
 
     try {
       setLoading(true);
@@ -43,50 +51,24 @@ export default function SignupPage() {
       <form className="w-full max-w-md bg-white rounded shadow p-6" onSubmit={handleSubmit}>
         <h1 className="text-2xl font-bold mb-4">Create account</h1>
 
-        {error && (
-          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-            {error}
-          </div>
-        )}
+        {error && <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">{error}</div>}
 
         <div className="mb-4">
           <label className="block text-sm font-semibold mb-2">Email</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full border border-slate-300 rounded px-3 py-2"
-            placeholder="you@example.com"
-            required
-          />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full border border-slate-300 rounded px-3 py-2" placeholder="you@example.com" required disabled={!signupEnabled} />
         </div>
 
         <div className="mb-4">
           <label className="block text-sm font-semibold mb-2">Password</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full border border-slate-300 rounded px-3 py-2"
-            placeholder="At least 6 characters"
-            minLength={6}
-            required
-          />
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full border border-slate-300 rounded px-3 py-2" placeholder="At least 6 characters" minLength={6} required disabled={!signupEnabled} />
         </div>
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-slate-900 text-white rounded px-4 py-2 font-semibold disabled:opacity-50"
-        >
+        <button type="submit" disabled={loading || !signupEnabled} className="w-full bg-slate-900 text-white rounded px-4 py-2 font-semibold disabled:opacity-50">
           {loading ? 'Creating account...' : 'Sign up'}
         </button>
 
         <p className="mt-4 text-sm text-slate-600">
-          Already have an account?{' '}
-          <Link href="/login" className="text-blue-600 font-semibold">
-            Login
-          </Link>
+          Already have an account? <Link href="/login" className="text-blue-600 font-semibold">Login</Link>
         </p>
       </form>
     </div>

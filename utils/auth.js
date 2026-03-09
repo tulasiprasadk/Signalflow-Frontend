@@ -32,6 +32,14 @@ export function getStoredUser() {
   }
 }
 
+export function isPublicSignupEnabled() {
+  if (typeof window !== 'undefined' && window.location.hostname.includes('localhost')) {
+    return true;
+  }
+
+  return String(process.env.NEXT_PUBLIC_ALLOW_SIGNUP || '').toLowerCase() === 'true';
+}
+
 export async function authFetch(path, options = {}) {
   const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || '';
   const token = getAuthToken();
