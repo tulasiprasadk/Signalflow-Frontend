@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import SocialAccountList from '../components/Social/SocialAccountList';
 import SocialConnectPanel from '../components/Social/SocialConnectPanel';
 import { authFetch } from '../utils/auth';
+import { getApiBaseUrl } from '../utils/api';
 
 export default function AccountsPage() {
   const router = useRouter();
@@ -43,17 +44,17 @@ export default function AccountsPage() {
   };
 
   const handleConnectFacebook = () => {
-    const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+    const apiBase = getApiBaseUrl();
     window.location.href = `${apiBase}/api/social/connect/facebook`;
   };
 
   const handleConnectLinkedIn = () => {
-    const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+    const apiBase = getApiBaseUrl();
     window.location.href = `${apiBase}/api/social/connect/linkedin`;
   };
 
   const handleConnectTwitter = () => {
-    const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+    const apiBase = getApiBaseUrl();
     window.location.href = `${apiBase}/api/social/connect/twitter`;
   };
 

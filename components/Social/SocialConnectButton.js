@@ -1,6 +1,8 @@
+import { getApiBaseUrl } from '../../utils/api';
+
 export default function SocialConnectButton({ provider, name, icon, onConnect }) {
   const handleConnect = () => {
-    const base = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+    const base = getApiBaseUrl();
     const url = `${base}/api/social/connect/${provider}`;
     // Redirect to backend OAuth endpoint
     if (typeof window !== 'undefined') {

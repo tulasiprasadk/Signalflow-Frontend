@@ -1,3 +1,5 @@
+import { getApiBaseUrl } from './api';
+
 const TOKEN_KEY = 'growthinfra_auth_token';
 const USER_KEY = 'growthinfra_auth_user';
 
@@ -42,7 +44,7 @@ export function isPublicSignupEnabled() {
 }
 
 export async function authFetch(path, options = {}) {
-  const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+  const apiBase = getApiBaseUrl();
   const token = getAuthToken();
   const headers = {
     'Content-Type': 'application/json',

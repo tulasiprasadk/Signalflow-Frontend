@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { getAuthToken, isPublicSignupEnabled } from '../utils/auth';
+import { getApiBaseUrl } from '../utils/api';
 
 export default function Home() {
   const router = useRouter();
@@ -38,7 +39,7 @@ export default function Home() {
   ];
 
   const handleConnect = (provider) => {
-    const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || '';
+    const apiBase = getApiBaseUrl();
     const connectUrl = `${apiBase}/api/social/connect/${provider}`;
     window.location.href = connectUrl;
   };
