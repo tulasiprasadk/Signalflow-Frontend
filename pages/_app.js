@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import '../styles/globals.css';
 import { clearAuthSession, getAuthToken, getStoredUser, isStoredUserAdmin, setAuthSession } from '../utils/auth';
 import { getApiBaseUrl } from '../utils/api';
+import { withBasePath } from '../utils/basePath';
 
 const PROTECTED_ROUTES = [
   '/dashboard',
@@ -82,11 +83,11 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>GrowthInfra</title>
-        <link rel="icon" href="/growthinfra-logo.png" />
+        <link rel="icon" href={withBasePath('/growthinfra-logo.png')} />
       </Head>
       <Link href="/" className="global-home-logo" aria-label="Go to home">
         <img
-          src="/growthinfra-logo.png"
+          src={withBasePath('/growthinfra-logo.png')}
           alt="GrowthInfra Home"
         />
       </Link>

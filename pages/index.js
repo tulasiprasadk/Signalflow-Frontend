@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { getAuthToken, getStoredUser, isPublicSignupEnabled } from '../utils/auth';
 import { getApiBaseUrl } from '../utils/api';
+import { withBasePath } from '../utils/basePath';
 
 const platforms = [
   { name: 'Facebook', provider: 'facebook', accent: '#2563eb' },
@@ -71,7 +72,7 @@ export default function Home() {
             <div>
               <div className="brand-pill">GrowthInfra Control Hub</div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginTop: '18px', flexWrap: 'wrap' }}>
-                <img src="/growthinfra-logo.png" alt="GrowthInfra" style={{ width: '240px', maxWidth: '100%', height: 'auto', filter: 'drop-shadow(0 18px 28px rgba(15,23,42,0.12))' }} />
+                <img src={withBasePath('/growthinfra-logo.png')} alt="GrowthInfra" style={{ width: '240px', maxWidth: '100%', height: 'auto', filter: 'drop-shadow(0 18px 28px rgba(15,23,42,0.12))' }} />
               </div>
               <h1 style={{ fontSize: '48px', lineHeight: 1.02, margin: '18px 0 12px', color: '#0f172a' }}>GrowthInfra Social Operations</h1>
               <p style={{ margin: 0, maxWidth: '700px', color: '#475569', fontSize: '18px', lineHeight: 1.7 }}>

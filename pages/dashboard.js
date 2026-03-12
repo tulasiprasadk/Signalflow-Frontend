@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import SocialConnectPanel from '../components/Social/SocialConnectPanel';
 import SocialAccountList from '../components/Social/SocialAccountList';
 import { clearAuthSession, getStoredUser } from '../utils/auth';
+import { withBasePath } from '../utils/basePath';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 
@@ -45,7 +46,7 @@ export default function DashboardPage() {
             <div>
               <div className="brand-pill" style={{ background: 'rgba(255,255,255,0.12)', color: '#e0f2fe', borderColor: 'rgba(186,230,253,0.2)' }}>GrowthInfra Mission Control</div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginTop: '18px', flexWrap: 'wrap' }}>
-                <img src="/growthinfra-logo.png" alt="GrowthInfra" style={{ width: '250px', maxWidth: '100%', height: 'auto' }} />
+                <img src={withBasePath('/growthinfra-logo.png')} alt="GrowthInfra" style={{ width: '250px', maxWidth: '100%', height: 'auto' }} />
               </div>
               <h1 style={{ fontSize: '46px', lineHeight: 1.02, margin: '18px 0 10px' }}>GrowthInfra Dashboard</h1>
               <p style={{ margin: 0, color: 'rgba(226,232,240,0.92)', maxWidth: '740px', fontSize: '18px', lineHeight: 1.7 }}>

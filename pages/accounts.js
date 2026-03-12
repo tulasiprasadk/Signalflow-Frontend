@@ -4,6 +4,7 @@ import SocialAccountList from '../components/Social/SocialAccountList';
 import SocialConnectPanel from '../components/Social/SocialConnectPanel';
 import { authFetch, getStoredUser } from '../utils/auth';
 import { getApiBaseUrl } from '../utils/api';
+import { withBasePath } from '../utils/basePath';
 
 function buildOAuthUrl(provider) {
   const apiBase = getApiBaseUrl();
@@ -82,7 +83,7 @@ export default function AccountsPage() {
                 Manage brand pages, Instagram profiles, X accounts, and LinkedIn identity from one GrowthInfra operations surface.
               </p>
             </div>
-            <img src="/growthinfra-logo.png" alt="GrowthInfra" style={{ width: '220px', maxWidth: '100%', height: 'auto' }} />
+            <img src={withBasePath('/growthinfra-logo.png')} alt="GrowthInfra" style={{ width: '220px', maxWidth: '100%', height: 'auto' }} />
           </div>
         </div>
 
