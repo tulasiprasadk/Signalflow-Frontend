@@ -205,6 +205,22 @@ export default function WorkflowPage() {
 
   const isAccountPostable = (acc) => acc?.isPostable !== false;
 
+  const getDisplayAccountLabel = (acc) => {
+    const platform = acc?.platform || 'unknown';
+    const rawLabel = String(acc?.label || '').trim();
+    const providerLabel = String(acc?.provider || '').split(':')[1] || '';
+
+    if (platform === 'twitter') {
+      const twitterLabel = rawLabel || providerLabel;
+      if (twitterLabel && twitterLabel !== 'default' && !/^account_\d+$/.test(twitterLabel)) {
+        return twitterLabel.startsWith('@') ? twitterLabel : `@${twitterLabel}`;
+      }
+      return 'Connected X account';
+    }
+
+    return rawLabel || acc?.provider || 'Connected account';
+  };
+
   const organizationOptions = useMemo(() => {
     const names = new Set();
     for (const acc of accounts) {
@@ -1187,7 +1203,7 @@ export default function WorkflowPage() {
                               />
                               <span style={{ fontSize: 24 }}>{icon}</span>
                               <div style={{ flex: 1 }}>
-                                <div style={{ fontWeight: 600, color: '#111827' }}>{acc.label || acc.provider}</div>
+                                <div style={{ fontWeight: 600, color: '#111827' }}>{getDisplayAccountLabel(acc)}</div>
                                 <div style={{ color: '#6b7280', fontSize: 12, textTransform: 'capitalize' }}>
                                   {acc.platform}
                                 </div>
