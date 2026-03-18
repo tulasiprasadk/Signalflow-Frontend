@@ -1,0 +1,5 @@
+[33m31660bd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Make homepage login and signup explicit
+[33m3ab5a01[m Update frontend auth and social account flows
+[33m48f263e[m chore: fix vercel config encoding and link project
+[33ma4cf0bd[m Merge remote main and keep local frontend sources
+[33maf27104[m Initial frontend commit
